@@ -132,7 +132,8 @@ class KeepOnService : Service() {
                 keep(null)
             }
         }
-        handler.postDelayed(tick, POLL_MS)
+        // אחרי פספוס בודקים שוב מהר, כדי שהמסך לא יישאר דלוק עוד סבב שלם אחרי היציאה מהאפליקציה
+        handler.postDelayed(tick, if (misses > 0) RECHECK_MS else POLL_MS)
     }
 
     private fun readEvents() {
@@ -214,7 +215,8 @@ class KeepOnService : Service() {
     companion object {
         private const val NOTIFICATION_ID = 1
         private const val CHANNEL_ID = "status"
-        private const val POLL_MS = 1500L
+        private const val POLL_MS = 10_000L // זמן הכיבוי הקצר ביותר בהגדרות הוא 15 שניות
+        private const val RECHECK_MS = 1500L
         private const val MISSES_BEFORE_RELEASE = 2
         private const val LOCK_MS = 30 * 60 * 1000L
         private const val FIRST_READ_MS = 24 * 60 * 60 * 1000L

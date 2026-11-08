@@ -16,8 +16,8 @@ android {
         minSdk = 21
         targetSdk = 34
         // בכל גרסה חדשה להגדיל את versionCode, אחרת הטלפון לא יתקין עדכון
-        versionCode = 1
-        versionName = "1.0.0"
+        versionCode = 2
+        versionName = "1.0.1"
     }
 
     // חתימה קבועה: signing/keepscreen.jks + signing/keystore.properties (לגבות! בלי הקובץ אי אפשר להתקין עדכונים)
