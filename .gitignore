@@ -1,0 +1,11 @@
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+# Signing key: back it up separately, never in a public repo
+android/signing/
+*.apk
+
+# Plans stay on this computer: only code goes to GitHub
+תוכנית *.md
+תוכנית.md
